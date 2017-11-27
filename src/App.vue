@@ -12,9 +12,11 @@ export default {
 
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css?family=Lato:100,100i,400,400i,700');
+@import url('../static/mixins/colors.scss');
 
 * {
 	box-sizing: border-box;
+	transition: all 0.3s ease;
 }
 
 html, body {
