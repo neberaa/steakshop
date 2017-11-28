@@ -4,7 +4,7 @@
   img(src="/static/img/logo.svg")
  ul.navigation-list
   li.navigation-item(v-for="item in items")
-   router-link.navigation-link(:to="{path: ''}") {{item.name}}
+   router-link.navigation-link(:to="{path: item.path}") {{item.name}}
 
 </template>
 
