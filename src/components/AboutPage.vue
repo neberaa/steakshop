@@ -9,7 +9,7 @@ import navigation from '../components/Navigation.vue'
 
 export default {
   components: {navigation},
-  name: 'Main',
+  name: 'AbouPage',
   data () {
     return {
     }

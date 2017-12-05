@@ -72,6 +72,10 @@ export default {
   &:hover {
    color: crimson;   
   }
+
+  &.router-link-exact-active {
+    color: crimson;
+  }
  }
 }
 

@@ -1,17 +1,18 @@
 <template lang="pug">
 svg(viewBox="0 0 1060 685.3")
-  a(class="part" v-for = "item in items" v-bind:class="{'active': item.isActive}")
-    path( :d="item.d" fill="crimson") 
+  a(v-for = "(item, index) in items" @click="item.showCard = !item.showCard" v-bind:class="{active: item.showCard}" class="part")
+    path(:d="item.d" fill="crimson")     
 </template>
 
 <script>
+import Cards from '../components/Cards.vue'
 
 export default {
   name: 'Parts',
+  components: {Cards},
 
   data () {
     return {
-      isActive: false,
       items: [
         {
           d: 'm 401.44089,78.551818 c 20.37105,73.197402 41.95097,146.697012 41.06812,214.580932 60.71165,3.28617 120.28633,7.70931 175.56622,16.42725 22.17227,-61.28913 13.50835,-134.91274 -5.13352,-212.527527 z',
@@ -127,13 +128,6 @@ export default {
   },
 
   methods: {
-    selectPart (item, index) {
-      if (index) {
-        item = item.isActive
-      } else return
-      console.log(index)
-      console.log(this.items[index].id)
-    }
   }
 }
 </script>
