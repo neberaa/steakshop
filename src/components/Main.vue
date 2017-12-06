@@ -1,7 +1,6 @@
 <template lang="pug">
 .wrapper
  navigation
-
 </template>
 
 <script>
