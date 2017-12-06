@@ -32,7 +32,7 @@ export default {
           name: 'СТЕЙК ФИЛЕ МИНЬОН',
           desc: 'Это самое нежное мясо для стейка. Проходит влажное созревание от 5 до 10 дней. Для ресторанов и торговых сетей поставляется отрубом в вакумной упаковке.',
           longDesc: 'Изготавливается из самой ценной части говядины — тендерлоина (вырезки). Небольшой мышцы, которая практически не задействована в движениях животного. Мы рекомендуем готовить Тендерлоин стейки от Medium Rare до Medium, недолго обжаривая на сковороде и доводя до готовности в духовке.',
-          price: '450 ГРН.',
+          price: '450 ГРН',
           photo: 'static/img/steak1.png',
           showCard: false,
           class: 'card1'
@@ -217,6 +217,7 @@ svg {
 
  &:hover {
   @include box-shadow;
+  /* filter: drop-shadow(0 5px 10px black); */
  }
 
  .steak {
@@ -228,7 +229,8 @@ svg {
     width: 70%;
     height: 40%;
     padding-top: 10px;
-    filter: drop-shadow(0 10px 20px $white);
+    filter: drop-shadow(0 5px 10px $white);
+    opacity: 1;
   }
 
   &__title {
@@ -244,9 +246,9 @@ svg {
     font-size: 14px;
     padding: 0 20px;
     display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 
   }
 
