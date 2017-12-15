@@ -1,21 +1,24 @@
 <template lang="pug">
 .wrapper
- navigation 
- .map
-  img(src="/static/img/cow2.png")
-  svg(viewBox="0 0 1060 685.3")
-    a(v-for = "(item, index) in items" @click="item.showCard = !item.showCard" v-bind:class="{active: item.showCard}" class="part")
-      path(:d="item.d" fill="crimson")  
-  transition(name="fade")
-    .card(v-if="item.showCard" v-for="(item, index) in items" :key="item.id" v-bind:class="item.class")
-      .steak 
-        img.steak__photo(:src="item.photo")
-        h4.steak__title {{item.name}}
-        p.steak__desc {{item.desc}}
-        p.steak__price {{item.price}}
-          span / за 1 кг
-        button.steak__more(@click="showFullDesc(item, index)") Подробнее
-        a.steak__icon(@click="item.showCard = !item.showCard")
+  navigation
+  .map
+    .img-rect
+    img(src="/static/img/cow2.png")
+    svg(viewBox="0 0 1060 685.3")
+      a(v-for = "(item, index) in items" @click="item.showCard = !item.showCard" v-bind:class="{active: item.showCard}" class="part")
+        path(:d="item.d" fill="crimson")  
+    transition(name="fade")
+      .card(v-if="item.showCard" v-for="(item, index) in items" :key="item.id" v-bind:class="item.class")
+        .steak 
+          img.steak__photo(:src="item.photo")
+          h4.steak__title {{item.name}}
+          p.steak__desc {{item.desc}}
+          p.steak__price {{item.price}}
+            span / за 1 кг
+          button.steak__more(@click="showFullDesc(item, index)") Подробнее
+          a.steak__icon(@click="item.showCard = !item.showCard")
+  .img-tree
+  .img-powder
 </template>
 
 <script>
@@ -156,17 +159,50 @@ export default {
  min-width: 100vw;
  min-height: 100vh;
  background: url(/static/img/bg-texture.jpg) repeat 0 0;
+ overflow: hidden;
+ position: relative;
+
+ .img-tree {
+    background-image: url(/static/img/sprite.png);
+    background-position: -366px 0px;
+    width: 280px;
+    height: 453px;
+    position: absolute;
+    transform: rotate(145deg);
+    bottom: -100px;
+    left: -100px;
+ }
+
+ .img-powder {
+    width: 245px;
+    height: 234px;
+    background-image: url(/static/img/sprite.png);
+    background-position: -11px -512px;
+    bottom: -26px;
+    @include center(x);
+    z-index: 1;
+ }
 }
 
 .map {
  position: relative;
  text-align: center;
  top: 50px;
+
+ .img-rect {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    border: 1px solid rgba(189, 161, 128, 0.5);
+    top: 400px;
+    right: -70px;
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+ }
 }
 
 img {
  opacity: .5;
-/*  width: 50%; */
 }
 
 svg {
@@ -197,11 +233,9 @@ svg {
  background: $grey;
  width: 300px;
  height: 500px;
- position: absolute;
- top: 10px;
- left: 20px;
  transition: all 0.2s ease;
  color: $white;
+ @include center(both);
 
  &:after {
   @include border;
@@ -315,47 +349,10 @@ svg {
   }
 }
 
-.card1 {
-  left: 3%;
-  top: 0;
-}
-.card2 {
-  left: 10%;
-  top: 20%;
-}
-.card3 {
-  left: 150px;
-  top: 140px;
-}
-.card4 {
-  left: 250px;
-  top: 140px;
-}
-.card5 {
-  left: 350px;
-  top: 140px;
-}
-.card6 {
-  left: 450px;
-  top: 140px;
-}
-.card7 {
-  left: 10px;
-  top: 40px;
-}
-.card8 {
-  left: 10px;
-  top: 40px;
-}
-.card9 {
-  left: 10px;
-  top: 40px;
-}
-
 .fade-enter-active, .fade-leave-active {
   transition: opacity .5s
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+.fade-enter, .fade-leave-to {
   opacity: 0
 }
 

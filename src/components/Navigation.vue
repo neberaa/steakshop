@@ -1,5 +1,6 @@
  <template lang="pug">
 .navigation
+ .img-waves 
  router-link.logo(:to ="{path: '/'}")
   img(src="/static/img/logo.svg")
  ul.navigation-list
@@ -45,6 +46,16 @@ export default {
   position: absolute;
   top: 75px;
   width: 100vw;
+ }
+
+ .img-waves {
+  position: absolute;
+  background: url(/static/img/sprite.png) no-repeat;
+  background-position: -491px -495px;
+  width: 80px;
+  height: 180px;
+  left: 100px;
+  z-index: 100;
  }
 
 
